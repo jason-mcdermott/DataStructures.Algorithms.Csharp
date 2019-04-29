@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DataStructures.Algorithms.Algorithms.Sort
 {
@@ -49,6 +48,50 @@ namespace DataStructures.Algorithms.Algorithms.Sort
                 {
                     merged.Add(right.First());
                     right.RemoveAt(0);
+                }
+            }
+
+            return merged;
+        }
+
+        public static Queue<int> Sort(Queue<int> input)
+        {
+            if (input.ToList().Count == 1)
+            {
+                return input;
+            }
+
+            var mid = input.ToList().Count / 2;
+            var left = new Queue<int>(input.Take(mid));
+            var right = new Queue<int>(input.Skip(mid).Take(input.ToList().Count - left.ToList().Count));
+
+            return Merge(Sort(left), Sort(right));
+        }
+
+        public static Queue<int> Merge(Queue<int> left, Queue<int> right)
+        {
+            var merged = new Queue<int>();
+
+            while (left.Count > 0 || right.Count > 0)
+            {
+                if (left.Count > 0 && right.Count > 0)
+                {
+                    if (left.Peek() < right.Peek())
+                    {
+                        merged.Enqueue(left.Dequeue());
+                    }
+                    else
+                    {
+                        merged.Enqueue(right.Dequeue());
+                    }
+                }
+                else if (left.Count > 0)
+                {
+                    merged.Enqueue(left.Dequeue());
+                }
+                else
+                {
+                    merged.Enqueue(right.Dequeue());
                 }
             }
 

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static DataStructures.Algorithms.Algorithms.Sort.MergeSort;
 
@@ -40,6 +39,22 @@ namespace Algorithms.UnitTests
             Assert.AreEqual(5, sorted[4]);
             Assert.AreEqual(7, sorted[6]);
             Assert.AreEqual(10, sorted[9]);
+        }
+
+        [TestMethod]
+        public void MergeSort_using_returns_sorted_queue()
+        {
+            // arrange
+            var unsorted = new Queue<int>(new int[] { 3, 5, 2, 9, 10, 8, 1, 4, 6, 7 });
+
+            // act
+            var sorted = Sort(unsorted);
+
+            // assert
+            for (int i = 1; i < 11; i++)
+            {
+                Assert.AreEqual(i, sorted.Dequeue());
+            }
         }
     }
 }
