@@ -6,6 +6,10 @@ namespace DataStructures.Algorithms.Algorithms.Sort
 {
     public static class MergeSort
     {
+        /// <summary>
+        /// merge / sort using List<int>
+        /// </summary>
+        /// <param name="input"></param>
         public static IList<int> Sort(IList<int> input)
         {
             if (input.Count == 1)
@@ -54,6 +58,10 @@ namespace DataStructures.Algorithms.Algorithms.Sort
             return merged;
         }
 
+        /// <summary>
+        /// merge / sort using Queue<int>
+        /// </summary>
+        /// <param name="input"></param>
         public static Queue<int> Sort(Queue<int> input)
         {
             if (input.ToList().Count == 1)
@@ -98,6 +106,10 @@ namespace DataStructures.Algorithms.Algorithms.Sort
             return merged;
         }
 
+        /// <summary>
+        /// merge / sort using int array
+        /// </summary>
+        /// <param name="input"></param>
         public static int[] Sort(int[] input)
         {
             if (input.Length == 1)
@@ -154,6 +166,10 @@ namespace DataStructures.Algorithms.Algorithms.Sort
             return merged;
         }
 
+        /// <summary>
+        /// utility method to remove first element from array
+        /// </summary>
+        /// <param name="arr"></param>
         private static int[] Slice(int[] arr)
         {
             var temp = new int[arr.Length - 1];
