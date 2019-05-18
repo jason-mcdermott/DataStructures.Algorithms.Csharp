@@ -176,36 +176,36 @@ namespace DataStructures.Algorithms.DataStructures.Trees
 
         private List<int> _nodeList { get; set; } = new List<int>();
 
-        public void PreOrderTraversal2(Node<int> root)
+        public void PreOrderTraversal(Node<int> root)
         {
             if (root != null)
             {
                 _nodeList.Add(root.Value);
-                PreOrderTraversal2(root.Left);
-                PreOrderTraversal2(root.Right);
+                PreOrderTraversal(root.Left);
+                PreOrderTraversal(root.Right);
             }
 
             // 20 15 13 16 25 22 45
         }
 
-        public void InOrderTraversal2(Node<int> root)
+        public void InOrderTraversal(Node<int> root)
         {
             if (root != null)
             {
-                InOrderTraversal2(root.Left);
+                InOrderTraversal(root.Left);
                 _nodeList.Add(root.Value);
-                InOrderTraversal2(root.Right);
+                InOrderTraversal(root.Right);
             }
 
             // 13 15 16 20 22 25 45
         }
 
-        public void PostOrderTraversal2(Node<int> root)
+        public void PostOrderTraversal(Node<int> root)
         {
             if (root != null)
             {
-                PostOrderTraversal2(root.Left);
-                PostOrderTraversal2(root.Right);
+                PostOrderTraversal(root.Left);
+                PostOrderTraversal(root.Right);
                 _nodeList.Add(root.Value);
             }
 

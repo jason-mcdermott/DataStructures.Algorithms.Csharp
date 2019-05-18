@@ -30,7 +30,6 @@ namespace DataStructures.Algorithms.DataStructures.Lists
             while (current != null)
             {
                 Console.WriteLine(current.Value);
-                var temp = current;
                 current = current.Next;
             }
         }
